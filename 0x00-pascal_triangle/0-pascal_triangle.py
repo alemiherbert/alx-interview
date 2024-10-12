@@ -7,6 +7,9 @@ Pascal's triangle implementation in python
 
 def pascal_triangle(n):
     _outer = []
+
+    if n <= 0:
+        return _outer
     _memory = {}
 
     def pascal_spot(row, col):
