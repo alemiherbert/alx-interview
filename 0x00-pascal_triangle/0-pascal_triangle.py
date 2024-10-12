@@ -1,33 +1,24 @@
 #!/usr/bin/python3
-
 """
-Pascal's triangle implementation in python
+0-pascal_triangle
 """
 
 
 def pascal_triangle(n):
-    _outer = []
-
+    """
+    Returns a list of integers
+    representing the Pascal Triangle of n
+    returns empty list if n <= 0
+    """
+    k = []
     if n <= 0:
-        return _outer
-    _memory = {}
-
-    def pascal_spot(row, col):
-        idx = (row, col)
-        if idx in _memory:
-            return _memory[idx]
-        if col == 1:
-            return 1
-        if row == col:
-            return 1
-        up_left = pascal_spot(row - 1, col - 1)
-        up_right = pascal_spot(row - 1, col)
-        _memory[idx] = up_left + up_right
-        return _memory[idx]
-
-    for i in range(1, n + 1):
-        _inner = []
-        for j in range(1, i + 1):
-            _inner.append(pascal_spot(i, j))
-        _outer.append(_inner)
-    return _outer
+        return k
+    k = [[1]]
+    for i in range(1, n):
+        temp = [1]
+        for j in range(len(k[i - 1]) - 1):
+            curr = k[i - 1]
+            temp.append(k[i - 1][j] + k[i - 1][j + 1])
+        temp.append(1)
+        k.append(temp)
+    return k
