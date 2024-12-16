@@ -1,2 +1,1 @@
-# Pascal Triangle
-A simple implementation of the pascal triangle problem in python
+# The pascals triangle in python.
